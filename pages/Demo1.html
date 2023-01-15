@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JB's PyScript Demo</title>
+
+<!-- Python Injection -->
+    <link rel="stylesheet" href="../public/styles.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+</head>
+
+<body>
+    <h3 class="py-title">Using basic python code inside an HTML Page. </h3>
+
+    <p>In the example shown below we are able to import packages from the Python standard libray, preform computations, and run scripts - all from inside the HTML document! </p>
+    <p> import math</p>
+    <p>print(math.sqrt(25))</p>
+
+    <py-script>
+        import math
+        print(math.sqrt(25))
+    </py-script>
+    
+    <div>
+        <p><a href="../index.html">Back</a></p>
+    </div>
+</body>
+
+</html>

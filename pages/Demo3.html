@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyScript : Custom Imports</title>
+
+    <!-- Python Injection -->
+    <link rel="stylesheet" href="../public/styles.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+</head>
+<body>
+    <h2 class="py-title">Custom .Py Imports</h2>
+    
+    <h3>Got too much python code?</h3>
+    <p> While this rarely happens IRL, if your page gets bogged down with code, break it up!  </p>
+    
+    <p>Take all that python code and move it to a seperate ".py" file, then load it into the html page using the "src" property of your py-script tag. </p>
+    <p>"py-script src="myCustomScript.py"</p>
+
+    <p>In the example below, the button is linked to a seperate ".py" file with a random number generator. Try it out!</p>
+
+
+    <!-- INSERT PYTHON SCRIPT -->
+    
+
+    <div>
+        <button type="button" id="btn" py-onclick="my_function()">Let's see it!</button>
+        <py-script src="../scripts/Demo3.py"></py-script>
+    </div>
+
+        <p><a href="../index.html">Back</a></p>
+    
+</body>
+</html>

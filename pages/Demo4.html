@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyScript : Event Listeners, Custom Scripts, API's, and the DOM</title>
+
+    <!-- Python Injection -->
+    <link rel="stylesheet" href="../public/styles.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+    <py-config type="json">
+        {
+          "packages": ["requests"]
+        }
+    </py-config>
+
+</head>
+<body>
+    <h3 class="py-title-h1">Using Event Listeners and the DOM with online API's </h3>
+
+    <br>
+
+    <p> Like Javascript - PyScript allows you to access HTML Elements in the DOM by calling their element ID.</p>
+    <p> The example I've created below uses a basic event listener to interact with a simple API.</p>
+
+    <!-- Kanye Quoter -->
+        <div class="parent">
+            <div class="child">
+                <img src="../public/images/background.png" alt="QuoteBubble" class="quote-bubble">
+            </div>
+
+            <div class="child">
+                <img src="../public/images/kanye.png" alt="KanyeHead" class="kanye-head">
+            </div>
+
+            <div class="child">
+                <div class="container">
+                    <h3 id="quoteText" class="quote-text">Hello</h3>
+                </div>
+                
+            </div>
+
+            <div class="child quote-button">
+                <button id="quoteButton" type="button" class="py-button" py-click="on_click()">I'm Feelin' Yeezy</button>
+
+                <py-script>
+                    from pyodide.http import pyfetch
+                    from pyodide import create_proxy
+                    from js import console, document
+                    import asyncio
+
+                    async def KanyeQuote():
+                        try:
+                            response = await pyfetch(
+                                url=f"https://api.kanye.rest",
+                                method="GET")
+
+                            if response.ok:
+                                data = await response.json()
+                                quote = data["quote"]
+                                return (quote)
+                        except:
+                            return None
+
+                    async def getQuote():
+                        quote = await KanyeQuote()
+                        if quote is None:
+                            print("error")
+                        else:
+                            return quote
+
+                    @create_proxy
+                    async def on_click():
+                        result = await getQuote()
+                        quoteText = js.document.getElementById('quoteText')
+                        quoteText.innerHTML = result
+
+                </py-script>
+
+            </div>
+        </div>
+
+        <div>
+            <p><a href="../index.html">Back</a></p>
+        </div>
+
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Python Injection -->
+    <link rel="stylesheet" href="../public/styles.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+
+    <py-config>
+        packages = ['pandas']
+    </py-config>
+
+</head>
+<body>
+    <h2 class="py-title">Interactive REPL</h2>
+
+    <p>Using the "py-repl" tag inside your HTML page, you are able to create interactive REPL boxes inside with full python capabilities.</p>
+    <p>In this example, weve created a basic Repl, as well as given it a custom id for CSS styling.</p>
+
+    <p> * For more complex package use within the Repl, youll need to add the desired packages inside a "py-config" tag within the head section of your HTML. This example Repl has the Pandas library included in the config.</p>
+    <p> We can test this by importing the libray and creating a sample dataframe with the following..</p>
+
+    <p>import pandas as pd</p>
+    <p>pd.util.testing.makeDataFrame()</p>
+
+    <py-repl id="repl-demo"></py-repl>
+
+    <div>
+        <p><a href="../index.html">Back</a></p>
+    </div>
+</body>
+</html>
