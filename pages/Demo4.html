@@ -32,18 +32,18 @@
             </div>
 
             <div class="child">
-                <img src="../public/images/kanye.png" alt="KanyeHead" class="kanye-head">
+                <img src="../public/images/chucknorris.png" alt="ChuckNorris" class="chuck-head">
             </div>
 
             <div class="child">
                 <div class="container">
-                    <h3 id="quoteText" class="quote-text">Hello</h3>
+                    <h3 id="quoteText" class="quote-text">Violence is my last option.</h3>
                 </div>
                 
             </div>
 
             <div class="child quote-button">
-                <button id="quoteButton" type="button" class="py-button" py-click="on_click()">I'm Feelin' Yeezy</button>
+                <button id="quoteButton" type="button" class="py-button" py-click="on_click()">Get Chucked</button>
 
                 <py-script>
                     from pyodide.http import pyfetch
@@ -51,21 +51,22 @@
                     from js import console, document
                     import asyncio
 
-                    async def KanyeQuote():
+                    async def ChuckQuote():
                         try:
                             response = await pyfetch(
-                                url=f"https://api.kanye.rest",
+                                url=f"https://api.chucknorris.io/jokes/random",
                                 method="GET")
 
                             if response.ok:
                                 data = await response.json()
-                                quote = data["quote"]
+                                quote = data["value"]
+                                print(quote)
                                 return (quote)
                         except:
                             return None
 
                     async def getQuote():
-                        quote = await KanyeQuote()
+                        quote = await ChuckQuote()
                         if quote is None:
                             print("error")
                         else:

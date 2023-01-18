@@ -22,15 +22,16 @@
     padding-left: 15vw;
 }
 
-.kanye-head {
-    padding-left: 19vw;
+.chuck-head {
+    padding-left: 10vw;
     padding-top: 333px;
 }
 
 .quote-text {
     color: darkslategrey;
     font-weight: 650;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    padding-left:10px;
     text-align: center;
     font-family:Verdana, Geneva, Tahoma, sans-serif
 }
